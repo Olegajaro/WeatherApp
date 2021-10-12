@@ -14,9 +14,12 @@ class MainViewController: UIViewController {
     @IBOutlet var feelsLikeTempLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
     
+    private var networking = NetworkManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        networking.fetchCurrentWeather(forCity: "London")
     }
     
     @IBAction func searchPressed() {
