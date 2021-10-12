@@ -13,6 +13,7 @@
 		1094B7822715EE1B00B03C0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1094B7802715EE1B00B03C0B /* Main.storyboard */; };
 		1094B7842715EE1C00B03C0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1094B7832715EE1C00B03C0B /* Assets.xcassets */; };
 		1094B7872715EE1C00B03C0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1094B7852715EE1C00B03C0B /* LaunchScreen.storyboard */; };
+		1094B78F2715EEED00B03C0B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1094B78E2715EEED00B03C0B /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1094B7832715EE1C00B03C0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1094B7862715EE1C00B03C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1094B7882715EE1C00B03C0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1094B78E2715EEED00B03C0B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		1094B76E2715EE1B00B03C0B = {
 			isa = PBXGroup;
 			children = (
+				1094B78E2715EEED00B03C0B /* .gitignore */,
 				1094B7792715EE1B00B03C0B /* WeatherApp */,
 				1094B7782715EE1B00B03C0B /* Products */,
 			);
@@ -56,15 +59,55 @@
 		1094B7792715EE1B00B03C0B /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				1094B77A2715EE1B00B03C0B /* AppDelegate.swift */,
-				1094B77C2715EE1B00B03C0B /* SceneDelegate.swift */,
-				1094B77E2715EE1B00B03C0B /* ViewController.swift */,
-				1094B7802715EE1B00B03C0B /* Main.storyboard */,
-				1094B7832715EE1C00B03C0B /* Assets.xcassets */,
-				1094B7852715EE1C00B03C0B /* LaunchScreen.storyboard */,
-				1094B7882715EE1C00B03C0B /* Info.plist */,
+				1094B7912715EF5700B03C0B /* ViewControllers */,
+				1094B7942715EFB300B03C0B /* Models */,
+				1094B7932715EF9200B03C0B /* Extensions */,
+				1094B7922715EF6100B03C0B /* Storyboards */,
+				1094B7902715EF4900B03C0B /* App */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		1094B7902715EF4900B03C0B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1094B77A2715EE1B00B03C0B /* AppDelegate.swift */,
+				1094B77C2715EE1B00B03C0B /* SceneDelegate.swift */,
+				1094B7832715EE1C00B03C0B /* Assets.xcassets */,
+				1094B7882715EE1C00B03C0B /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1094B7912715EF5700B03C0B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1094B77E2715EE1B00B03C0B /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1094B7922715EF6100B03C0B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1094B7802715EE1B00B03C0B /* Main.storyboard */,
+				1094B7852715EE1C00B03C0B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		1094B7932715EF9200B03C0B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1094B7942715EFB300B03C0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1094B78F2715EEED00B03C0B /* .gitignore in Resources */,
 				1094B7872715EE1C00B03C0B /* LaunchScreen.storyboard in Resources */,
 				1094B7842715EE1C00B03C0B /* Assets.xcassets in Resources */,
 				1094B7822715EE1B00B03C0B /* Main.storyboard in Resources */,
@@ -291,7 +335,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QGLMKQL94J;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = WeatherApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -306,7 +350,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,7 +363,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QGLMKQL94J;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = WeatherApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -334,7 +378,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
