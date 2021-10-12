@@ -11,7 +11,8 @@ extension MainViewController {
     func pressedSearchAlertController(
         withTitle title: String?,
         message: String?,
-        style: UIAlertController.Style
+        style: UIAlertController.Style,
+        completion: @escaping(String) -> Void
     ) {
         let alert = UIAlertController(
             title: title,
@@ -23,7 +24,8 @@ extension MainViewController {
             let textField = alert.textFields?.first
             guard let cityName = textField?.text else { return }
             if cityName != "" {
-                print("search info for the \(cityName)")
+                let city = cityName.split(separator: " ").joined(separator: "%20")
+                completion(city)
             }
         }
         

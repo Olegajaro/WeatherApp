@@ -27,7 +27,9 @@ class MainViewController: UIViewController {
             withTitle: "Enter city name",
             message: nil,
             style: .alert
-        )
+        ) { city in
+            self.networking.fetchCurrentWeather(forCity: city)
+        }
     }
     
 }
