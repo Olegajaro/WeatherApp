@@ -21,19 +21,21 @@ class NetworkManager {
         let session = URLSession(configuration: .default)
         session.dataTask(with: url) { data, response, error in
             if let data = data {
-                self.parsJSON(withData: data)
+                let currentWeather = self.parsJSON(withData: data)
             }
         }.resume()
     }
     
-    func parsJSON(withData data: Data) {
+    func parsJSON(withData data: Data) -> CurrentWeather? {
         let decoder = JSONDecoder()
         
         do {
             let currentWeatherData = try decoder.decode(CurrentWeatherData.self, from: data)
-            print(currentWeatherData.main.temp)
+            guard let currentWeather = CurrentWeather(currentWeatherData: currentWeatherData) else { return nil }
+            return currentWeather
         } catch let error {
             print(error.localizedDescription)
         }
+        return nil
     }
 }

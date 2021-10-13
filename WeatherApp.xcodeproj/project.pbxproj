@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1093F67127174305002855EC /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093F67027174305002855EC /* CurrentWeatherData.swift */; };
+		1093F673271747DA002855EC /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093F672271747DA002855EC /* CurrentWeather.swift */; };
 		1094B77B2715EE1B00B03C0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094B77A2715EE1B00B03C0B /* AppDelegate.swift */; };
 		1094B77D2715EE1B00B03C0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094B77C2715EE1B00B03C0B /* SceneDelegate.swift */; };
 		1094B77F2715EE1B00B03C0B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094B77E2715EE1B00B03C0B /* MainViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1093F67027174305002855EC /* CurrentWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
+		1093F672271747DA002855EC /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		1094B7772715EE1B00B03C0B /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1094B77A2715EE1B00B03C0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1094B77C2715EE1B00B03C0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				1094B79A271610D400B03C0B /* Constans.swift */,
 				1093F67027174305002855EC /* CurrentWeatherData.swift */,
+				1093F672271747DA002855EC /* CurrentWeather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			files = (
 				1094B77F2715EE1B00B03C0B /* MainViewController.swift in Sources */,
 				1094B77B2715EE1B00B03C0B /* AppDelegate.swift in Sources */,
+				1093F673271747DA002855EC /* CurrentWeather.swift in Sources */,
 				1094B79B271610D400B03C0B /* Constans.swift in Sources */,
 				1094B79927160F0000B03C0B /* NetworkManager.swift in Sources */,
 				1094B77D2715EE1B00B03C0B /* SceneDelegate.swift in Sources */,
