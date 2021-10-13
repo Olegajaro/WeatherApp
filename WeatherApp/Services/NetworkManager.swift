@@ -11,9 +11,11 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
+    var onCompletion: ((CurrentWeather) -> Void)?
+    
     private init() {}
     
-    func fetchCurrentWeather(forCity city: String) {
+    func fetchCurrentWeather(forCity city: String ) {
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)"
         
         guard let url = URL(string: urlString) else { return }
@@ -21,7 +23,8 @@ class NetworkManager {
         let session = URLSession(configuration: .default)
         session.dataTask(with: url) { data, response, error in
             if let data = data {
-                let currentWeather = self.parsJSON(withData: data)
+                guard let currentWeather = self.parsJSON(withData: data) else { return }
+                self.onCompletion?(currentWeather)
             }
         }.resume()
     }

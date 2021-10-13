@@ -24,6 +24,6 @@ struct CurrentWeather {
         cityName = currentWeatherData.name
         temperature = currentWeatherData.main.temp
         feelsLikeTemperature = currentWeatherData.main.feelsLike
-        conditionCode = currentWeatherData.weather.first?.id
+        conditionCode = currentWeatherData.weather.first?.id ?? 0
     }
 }

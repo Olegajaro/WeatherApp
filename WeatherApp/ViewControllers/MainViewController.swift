@@ -19,6 +19,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        networking.onCompletion = { currentWeather in
+            print(currentWeather.cityName)
+        }
         networking.fetchCurrentWeather(forCity: "London")
     }
     
@@ -31,6 +34,5 @@ class MainViewController: UIViewController {
             self.networking.fetchCurrentWeather(forCity: city)
         }
     }
-    
 }
 
