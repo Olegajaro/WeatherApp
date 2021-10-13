@@ -16,7 +16,7 @@ class NetworkManager {
     private init() {}
     
     func fetchCurrentWeather(forCity city: String ) {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)"
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
         
         guard let url = URL(string: urlString) else { return }
         

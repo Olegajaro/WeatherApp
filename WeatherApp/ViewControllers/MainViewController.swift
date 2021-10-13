@@ -19,8 +19,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networking.onCompletion = { currentWeather in
-            print(currentWeather.cityName)
+        networking.onCompletion = { [weak self] currentWeather in
+            guard let self = self else { return }
+            self.updateInterface(weather: currentWeather)
         }
         networking.fetchCurrentWeather(forCity: "London")
     }
@@ -30,8 +31,17 @@ class MainViewController: UIViewController {
             withTitle: "Enter city name",
             message: nil,
             style: .alert
-        ) { city in
+        ) { [unowned self] city in
             self.networking.fetchCurrentWeather(forCity: city)
+        }
+    }
+    
+    private func updateInterface(weather: CurrentWeather) {
+        DispatchQueue.main.async {
+            self.cityLabel.text = weather.cityName
+            self.temperatureLabel.text = weather.temperatureString
+            self.feelsLikeTempLabel.text = weather.feelsLikeTemperatureString + "°C"
+            self.weatherIconImageView.image = UIImage(systemName: weather.systemIconNameString)
         }
     }
 }
