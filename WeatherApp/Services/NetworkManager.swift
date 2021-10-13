@@ -7,11 +7,15 @@
 
 import Foundation
 
+protocol NetworkManagerDelegate: AnyObject {
+    func updateInterface(_: NetworkManager, with currentWeather: CurrentWeather)
+}
+
 class NetworkManager {
     
     static let shared = NetworkManager()
     
-    var onCompletion: ((CurrentWeather) -> Void)?
+    weak var delegate: NetworkManagerDelegate?
     
     private init() {}
     
@@ -24,7 +28,7 @@ class NetworkManager {
         session.dataTask(with: url) { data, response, error in
             if let data = data {
                 guard let currentWeather = self.parsJSON(withData: data) else { return }
-                self.onCompletion?(currentWeather)
+                self.delegate?.updateInterface(self, with: currentWeather)
             }
         }.resume()
     }

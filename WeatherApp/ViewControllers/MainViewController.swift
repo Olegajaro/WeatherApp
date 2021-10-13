@@ -19,9 +19,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networking.onCompletion = { currentWeather in
-            print(currentWeather.cityName)
-        }
+        networking.delegate = self
         networking.fetchCurrentWeather(forCity: "London")
     }
     
@@ -36,3 +34,8 @@ class MainViewController: UIViewController {
     }
 }
 
+extension MainViewController: NetworkManagerDelegate {
+    func updateInterface(_: NetworkManager, with currentWeather: CurrentWeather) {
+        print(currentWeather.cityName)
+    }
+}
