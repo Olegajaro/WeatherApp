@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController {
     
@@ -15,6 +16,13 @@ class MainViewController: UIViewController {
     @IBOutlet var cityLabel: UILabel!
     
     private var networking = NetworkManager.shared
+    private lazy var locationManager: CLLocationManager = {
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.requestWhenInUseAuthorization()
+        return locationManager
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +31,10 @@ class MainViewController: UIViewController {
             guard let self = self else { return }
             self.updateInterface(weather: currentWeather)
         }
-        networking.fetchCurrentWeather(forCity: "London")
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestLocation()
+        }
     }
     
     @IBAction func searchPressed() {
@@ -32,7 +43,7 @@ class MainViewController: UIViewController {
             message: nil,
             style: .alert
         ) { [unowned self] city in
-            self.networking.fetchCurrentWeather(forCity: city)
+            self.networking.fetchCurrentWeather(forRequestType: .cityName(city: city))
         }
     }
     
@@ -46,3 +57,17 @@ class MainViewController: UIViewController {
     }
 }
 
+// MARK: - CLLocationManagerDelegate
+extension MainViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        networking.fetchCurrentWeather(forRequestType: .coordinate(latitude: latitude, longitude: longitude ))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}

@@ -6,8 +6,14 @@
 //
 
 import Foundation
+import CoreLocation
 
 class NetworkManager {
+    
+    enum RequestType {
+        case cityName(city: String)
+        case coordinate(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
+    }
     
     static let shared = NetworkManager()
     
@@ -15,9 +21,34 @@ class NetworkManager {
     
     private init() {}
     
-    func fetchCurrentWeather(forCity city: String ) {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
+    func fetchCurrentWeather(forRequestType requestType: RequestType) {
+        var urlString = ""
         
+        switch requestType {
+        case .cityName(let city):
+           urlString =
+            "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
+        case .coordinate(let latitude, let longitude):
+            urlString =
+            "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&apikey=\(apiKey)&units=metric"
+        }
+        
+        performRequest(withURLString: urlString)
+    }
+    
+//    func fetchCurrentWeather(forCity city: String ) {
+//        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
+//
+//        performRequest(withURLString: urlString)
+//    }
+//
+//    func fetchCurrentWeather(forLatitude latitude: CLLocationDegrees, longitude: CLLocationDegrees ) {
+//        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&apikey=\(apiKey)&units=metric"
+//
+//        performRequest(withURLString: urlString)
+//    }
+    
+    private func performRequest(withURLString urlString: String) {
         guard let url = URL(string: urlString) else { return }
         
         let session = URLSession(configuration: .default)
@@ -29,7 +60,7 @@ class NetworkManager {
         }.resume()
     }
     
-    func parsJSON(withData data: Data) -> CurrentWeather? {
+    private func parsJSON(withData data: Data) -> CurrentWeather? {
         let decoder = JSONDecoder()
         
         do {
