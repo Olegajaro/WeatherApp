@@ -27,11 +27,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networking.onCompletion = { [weak self] currentWeather in
-            guard let self = self else { return }
-            self.updateInterface(weather: currentWeather)
-        }
-        
+        fetchWeather()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestLocation()
         }
@@ -47,6 +43,15 @@ class MainViewController: UIViewController {
         }
     }
     
+    private func fetchWeather() {
+        networking.onCompletion = { [weak self] currentWeather in
+            guard let self = self else { return }
+            self.updateInterface(weather: currentWeather)
+        }
+        
+//        networking.fetchCurrentWeather(forRequestType: .cityName(city: "Moscow"))
+    }
+    
     private func updateInterface(weather: CurrentWeather) {
         DispatchQueue.main.async {
             self.cityLabel.text = weather.cityName
@@ -59,15 +64,20 @@ class MainViewController: UIViewController {
 
 // MARK: - CLLocationManagerDelegate
 extension MainViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
-        networking.fetchCurrentWeather(forRequestType: .coordinate(latitude: latitude, longitude: longitude ))
+        networking.fetchCurrentWeather(forRequestType: .coordinate(
+            latitude: latitude,
+            longitude: longitude
+        ))
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
         print(error.localizedDescription)
     }
 }
