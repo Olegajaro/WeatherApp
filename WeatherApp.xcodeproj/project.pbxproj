@@ -52,6 +52,7 @@
 		1094B76E2715EE1B00B03C0B = {
 			isa = PBXGroup;
 			children = (
+				10E253062796F58B00686C07 /* Images */,
 				1094B78E2715EEED00B03C0B /* .gitignore */,
 				1094B7792715EE1B00B03C0B /* WeatherApp */,
 				1094B7782715EE1B00B03C0B /* Products */,
@@ -131,6 +132,13 @@
 				1094B79827160F0000B03C0B /* NetworkManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		10E253062796F58B00686C07 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
