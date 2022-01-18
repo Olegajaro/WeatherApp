@@ -19,11 +19,6 @@
 		1094B7962715FDF700B03C0B /* ViewController + AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094B7952715FDF700B03C0B /* ViewController + AlertController.swift */; };
 		1094B79927160F0000B03C0B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094B79827160F0000B03C0B /* NetworkManager.swift */; };
 		1094B79B271610D400B03C0B /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094B79A271610D400B03C0B /* Constans.swift */; };
-		10ED87D52796F71200028CDF /* WeatherApp4.png in Resources */ = {isa = PBXBuildFile; fileRef = 10ED87D02796F71200028CDF /* WeatherApp4.png */; };
-		10ED87D62796F71200028CDF /* WeatherApp5.png in Resources */ = {isa = PBXBuildFile; fileRef = 10ED87D12796F71200028CDF /* WeatherApp5.png */; };
-		10ED87D72796F71200028CDF /* WeatherApp3.png in Resources */ = {isa = PBXBuildFile; fileRef = 10ED87D22796F71200028CDF /* WeatherApp3.png */; };
-		10ED87D82796F71200028CDF /* WeatherApp1.png in Resources */ = {isa = PBXBuildFile; fileRef = 10ED87D32796F71200028CDF /* WeatherApp1.png */; };
-		10ED87D92796F71200028CDF /* WeatherApp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10ED87D42796F71200028CDF /* WeatherApp2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +36,6 @@
 		1094B7952715FDF700B03C0B /* ViewController + AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + AlertController.swift"; sourceTree = "<group>"; };
 		1094B79827160F0000B03C0B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1094B79A271610D400B03C0B /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
-		10ED87D02796F71200028CDF /* WeatherApp4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeatherApp4.png; sourceTree = SOURCE_ROOT; };
-		10ED87D12796F71200028CDF /* WeatherApp5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeatherApp5.png; sourceTree = SOURCE_ROOT; };
-		10ED87D22796F71200028CDF /* WeatherApp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeatherApp3.png; sourceTree = SOURCE_ROOT; };
-		10ED87D32796F71200028CDF /* WeatherApp1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeatherApp1.png; sourceTree = SOURCE_ROOT; };
-		10ED87D42796F71200028CDF /* WeatherApp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeatherApp2.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +52,6 @@
 		1094B76E2715EE1B00B03C0B = {
 			isa = PBXGroup;
 			children = (
-				10E253062796F58B00686C07 /* Images */,
 				1094B78E2715EEED00B03C0B /* .gitignore */,
 				1094B7792715EE1B00B03C0B /* WeatherApp */,
 				1094B7782715EE1B00B03C0B /* Products */,
@@ -144,18 +133,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		10E253062796F58B00686C07 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				10ED87D32796F71200028CDF /* WeatherApp1.png */,
-				10ED87D42796F71200028CDF /* WeatherApp2.png */,
-				10ED87D22796F71200028CDF /* WeatherApp3.png */,
-				10ED87D02796F71200028CDF /* WeatherApp4.png */,
-				10ED87D12796F71200028CDF /* WeatherApp5.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -214,14 +191,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10ED87D92796F71200028CDF /* WeatherApp2.png in Resources */,
-				10ED87D62796F71200028CDF /* WeatherApp5.png in Resources */,
 				1094B78F2715EEED00B03C0B /* .gitignore in Resources */,
-				10ED87D72796F71200028CDF /* WeatherApp3.png in Resources */,
 				1094B7872715EE1C00B03C0B /* LaunchScreen.storyboard in Resources */,
-				10ED87D82796F71200028CDF /* WeatherApp1.png in Resources */,
 				1094B7842715EE1C00B03C0B /* Assets.xcassets in Resources */,
-				10ED87D52796F71200028CDF /* WeatherApp4.png in Resources */,
 				1094B7822715EE1B00B03C0B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
